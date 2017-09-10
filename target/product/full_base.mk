@@ -22,6 +22,7 @@
 PRODUCT_PACKAGES := \
     libfwdlockengine \
     WAPPushManager \
+		KelasKita \
 		FDroid \
 		FDroidPrivilegedExtension
 
