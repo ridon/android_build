@@ -1067,23 +1067,23 @@ else if get_stage("%(bcb_dev)s") != "3/3" then
 
   device_specific.IncrementalOTA_VerifyBegin()
 
-  if oem_props is None:
+#  if oem_props is None:
     # When blockimgdiff version is less than 3 (non-resumable block-based OTA),
     # patching on a device that's already on the target build will damage the
     # system. Because operations like move don't check the block state, they
     # always apply the changes unconditionally.
-    if blockimgdiff_version <= 2:
-      script.AssertSomeFingerprint(source_fp)
-    else:
-      script.AssertSomeFingerprint(source_fp, target_fp)
-  else:
-    if blockimgdiff_version <= 2:
-      script.AssertSomeThumbprint(
-          GetBuildProp("ro.build.thumbprint", OPTIONS.source_info_dict))
-    else:
-      script.AssertSomeThumbprint(
-          GetBuildProp("ro.build.thumbprint", OPTIONS.target_info_dict),
-          GetBuildProp("ro.build.thumbprint", OPTIONS.source_info_dict))
+#    if blockimgdiff_version <= 2:
+#      script.AssertSomeFingerprint(source_fp)
+#    else:
+#      script.AssertSomeFingerprint(source_fp, target_fp)
+#  else:
+#    if blockimgdiff_version <= 2:
+#      script.AssertSomeThumbprint(
+#          GetBuildProp("ro.build.thumbprint", OPTIONS.source_info_dict))
+#    else:
+#      script.AssertSomeThumbprint(
+#          GetBuildProp("ro.build.thumbprint", OPTIONS.target_info_dict),
+#          GetBuildProp("ro.build.thumbprint", OPTIONS.source_info_dict))
 
   # Check the required cache size (i.e. stashed blocks).
   size = []
@@ -1656,12 +1656,12 @@ def WriteIncrementalOTAPackage(target_zip, source_zip, output_zip):
   source_fp = CalculateFingerprint(oem_props, oem_dict,
                                    OPTIONS.source_info_dict)
 
-  if oem_props is None:
-    script.AssertSomeFingerprint(source_fp, target_fp)
-  else:
-    script.AssertSomeThumbprint(
-        GetBuildProp("ro.build.thumbprint", OPTIONS.target_info_dict),
-        GetBuildProp("ro.build.thumbprint", OPTIONS.source_info_dict))
+#  if oem_props is None:
+#    script.AssertSomeFingerprint(source_fp, target_fp)
+#  else:
+#    script.AssertSomeThumbprint(
+#        GetBuildProp("ro.build.thumbprint", OPTIONS.target_info_dict),
+#        GetBuildProp("ro.build.thumbprint", OPTIONS.source_info_dict))
 
   metadata["pre-build"] = source_fp
   metadata["post-build"] = target_fp

@@ -99,27 +99,27 @@ class EdifyGenerator(object):
                  name=name, value=value)
     self.script.append(cmd)
 
-  def AssertSomeFingerprint(self, *fp):
-    """Assert that the current recovery build fingerprint is one of *fp."""
-    if not fp:
-      raise ValueError("must specify some fingerprints")
-    cmd = (' ||\n    '.join([('getprop("ro.build.fingerprint") == "%s"') % i
-                             for i in fp]) +
-           ' ||\n    abort("E%d: Package expects build fingerprint of %s; '
-           'this device has " + getprop("ro.build.fingerprint") + ".");') % (
-               common.ErrorCode.FINGERPRINT_MISMATCH, " or ".join(fp))
-    self.script.append(cmd)
+#  def AssertSomeFingerprint(self, *fp):
+#        """Assert that the current recovery build fingerprint is one of *fp."""
+#    if not fp:
+#      raise ValueError("must specify some fingerprints")
+#    cmd = (' ||\n    '.join([('getprop("ro.build.fingerprint") == "%s"') % i
+#                             for i in fp]) +
+#           ' ||\n    abort("E%d: Package expects build fingerprint of %s; '
+#           'this device has " + getprop("ro.build.fingerprint") + ".");') % (
+#               common.ErrorCode.FINGERPRINT_MISMATCH, " or ".join(fp))
+#    self.script.append(cmd)
 
-  def AssertSomeThumbprint(self, *fp):
-    """Assert that the current recovery build thumbprint is one of *fp."""
-    if not fp:
-      raise ValueError("must specify some thumbprints")
-    cmd = (' ||\n    '.join([('getprop("ro.build.thumbprint") == "%s"') % i
-                             for i in fp]) +
-           ' ||\n    abort("E%d: Package expects build thumbprint of %s; this '
-           'device has " + getprop("ro.build.thumbprint") + ".");') % (
-               common.ErrorCode.THUMBPRINT_MISMATCH, " or ".join(fp))
-    self.script.append(cmd)
+#  def AssertSomeThumbprint(self, *fp):
+#    """Assert that the current recovery build thumbprint is one of *fp."""
+#    if not fp:
+#      raise ValueError("must specify some thumbprints")
+#    cmd = (' ||\n    '.join([('getprop("ro.build.thumbprint") == "%s"') % i
+#                             for i in fp]) +
+#           ' ||\n    abort("E%d: Package expects build thumbprint of %s; this '
+#           'device has " + getprop("ro.build.thumbprint") + ".");') % (
+#               common.ErrorCode.THUMBPRINT_MISMATCH, " or ".join(fp))
+#    self.script.append(cmd)
 
   def AssertOlderBuild(self, timestamp, timestamp_text):
     """Assert that the build on the device is older (or the same as)
