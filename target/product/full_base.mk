@@ -27,7 +27,7 @@ PRODUCT_PACKAGES := \
 		FDroidPrivilegedExtension
 
 # Put en_US first in the list, so make it default.
-PRODUCT_LOCALES := en_US
+PRODUCT_LOCALES := id_ID
 
 # Get some sounds
 $(call inherit-product-if-exists, frameworks/base/data/sounds/AllAudio.mk)
@@ -37,7 +37,7 @@ $(call inherit-product-if-exists, external/svox/pico/lang/all_pico_languages.mk)
 
 ifeq ($(TARGET_LOCALES),)
 # Get a list of languages.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/locales_full.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/locales_ridon.mk)
 else
 PRODUCT_LOCALES := $(TARGET_LOCALES)
 endif
