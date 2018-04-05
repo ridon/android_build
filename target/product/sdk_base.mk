@@ -104,4 +104,4 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core.mk)
 # ensure this is the default locale.
 PRODUCT_LOCALES := \
 	en_US \
-	id_ID
+	in_ID

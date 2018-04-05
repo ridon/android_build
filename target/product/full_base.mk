@@ -27,7 +27,7 @@ PRODUCT_PACKAGES := \
 		FDroidPrivilegedExtension
 
 # Put en_US first in the list, so make it default.
-PRODUCT_LOCALES := id_ID
+PRODUCT_LOCALES := in_ID
 
 # Get some sounds
 $(call inherit-product-if-exists, frameworks/base/data/sounds/AllAudio.mk)
